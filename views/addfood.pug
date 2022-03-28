@@ -1,0 +1,90 @@
+html 
+    head 
+        style.
+            ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            }
+            li {
+            float: left;
+            color:white;
+            }
+            li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            }
+            li a:hover {
+            background-color: #111;
+            color:white;
+            text-decoration:none;
+            }
+        title Add Food
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css')
+        script(src='https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js')
+        script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js')
+        script(src='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js')
+        
+    body
+        div 
+            div 
+                ul
+                    li
+                        a(href="/getfood" style='margin-left:10px;') Get Food
+                    li
+                        a(href="/addfood" style='margin-left:10px;') Add food
+                    li
+                        a(href="/ordersgot" style='margin-left:10px;') My Orders
+                    li
+                        a(href="/placedfood" style='margin-left:10px;') Orders 
+
+                    li
+                        a(href="/uploadfood" style='margin-left:10px;') uploads
+                        
+                    li(style='float:right')
+                            a(href="/logout") Logout
+                        
+                    li(style='float:right')
+                            a()=user
+            .card-group.m-2
+                .card
+            div.col-md-3.m-5           
+                    form(action='/foodadd', method='POST', name='foodadding', enctype='multipart/form-data' style="margin-top:100px")
+                        
+                        .form-group
+                            label Name
+                            input.form-control(type='text', placeholder='Name of The Food', name='name', required='required')
+                        .form-group
+                            label Price
+                            input.form-control(type='text', placeholder='Price of The Food', name='price', required='required')
+                        .form-group
+                            label peoplecount
+                            input.form-control(type='text', placeholder='No Of People Eat', name='peoplecount', required='required')
+                        .form-group
+                            label Remarks
+                            input.form-control(type='text', placeholder='Remarks Of Food', name='remark', required='required')
+                        .form-group
+                            label Location
+                            input.form-control(type='text', placeholder='Your Location', name='location', required='required')
+                        .form-group
+                            label Available
+                            select(name="delivery" style="margin-left:10px;")
+                                option(value="takeaway") takeaway
+                                option(value="homedelivery") homedelivery
+                        .form-row
+                            label Image
+                            input(type='file',style="margin-left:10px;", placeholder='Upload image', name='pic', required='')
+                        br
+
+                        .form-group    
+                            button.btn.btn-success(type='submit') ADD

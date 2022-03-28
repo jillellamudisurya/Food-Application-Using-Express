@@ -1,0 +1,39 @@
+<html>
+    <body>
+        <a href="/addfood.html" style="margin-left:10px">Add food</a>
+        <a href="/getfood" style="margin-left:10px">get food</a>
+        <a href="/ordersgot"  style="margin-left:10px">my orders</a>
+        <a href="/placedfood"  style="margin-left:10px">placed</a>
+
+        <h3>ADD FOOD </h3>
+        <form action="foodadd" method="post" name="foodadding" enctype="multipart/form-data">
+            <input type="text" name="name" placeholder="Food Name"><br><br>
+            <input type="text" name="peoplecount" placeholder="for people"><br><br>
+            <input type="text" name="price" placeholder="price"><br><br>
+            <input type="text" name="remark" placeholder="remarks"><br><br>
+            <input type="text" name="location" placeholder="location"><br><br>
+            <select name="delivery">
+                <option value="takeaway">takeaway</option>
+                <option value="home delivery">home delivery</option>
+            </select>
+            <input type="file" name="pic" multiple><br><br>
+            
+            <button type="submit">ADD</button>
+            
+        </form>
+
+        <script>
+            function validate()
+            {
+                var u=document.login.username.value;
+                var p=document.login.password.value;
+                if(u=="" || p=="")
+                {
+                    alert("Fill All Fields");
+                    return false;
+                }
+                return true;
+            }
+        </script>
+    </body>
+</html>

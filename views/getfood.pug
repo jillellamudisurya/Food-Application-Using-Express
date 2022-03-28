@@ -1,0 +1,75 @@
+head
+  style.
+      ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+      }
+      li {
+      float: left;
+      color:white;
+      }
+      li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      }
+      li a:hover {
+      background-color: #111;
+      color:white;
+      text-decoration:none;
+      }
+      
+  title Get Food
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  
+body
+  div 
+    div
+      ul
+        li
+          a(href="/getfood" style='margin-left:10px;') Get Food
+        li
+          a(href="/addfood" style='margin-left:10px;') Add Food
+        li
+          a(href="/ordersgot" style='margin-left:10px;') My Orders 
+        li
+          a(href="/placedfood" style='margin-left:10px;') Placed Orders
+
+        li
+          a(href="/uploadfood" style='margin-left:10px;') Upload Orders
+        
+        li(style='float:right')
+            a(href="/logout") Logout
+        
+        li(style='float:right')
+            a()=user.toUpperCase()
+    
+        
+      div 
+          form.form-select.form-select-lg(action="/displayfood" method="POST" name="getfoods" style="margin-left:40%;margin-top:20px;margin-bottom:20px;margin-right:20px;")
+            select(name="loc")
+                option(value="select") all
+                each val in food
+                    option(value=val.location) #{val.location}
+            button.btn.btn-info(type="submit") Submit
+  .container-fluid
+    .row 
+      div.col
+
+        .card-group
+            each item,index in food
+                .card(style="border:1px solid black;box-shadow:5px 5px 25px inset").col-2.m-3.p-0
+                    img(src=item.img  alt='a snow-capped mountain range' style='height:150px;')
+                    .card-body
+                        h2.card-title          #{item.name}
+                        p.card-text Remarks :  #{item.remark}
+                        p.card-text location :  #{item.location}
+                        p.card-text price :  #{item.price}
+                        p.card-text delivery :  #{item.delivery}
+                        a.btn.btn-secondary(href="/ordered/"+item.id) BuyNow
