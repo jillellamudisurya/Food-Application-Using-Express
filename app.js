@@ -204,4 +204,4 @@ app.get('/logout', (req, res) => {
 
 
 
-app.listen(4424,()=>{console.log("4424 is running")});
+app.listen(process.env.PORT);
